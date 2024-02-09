@@ -1,6 +1,35 @@
 This project used a dependency list-
 
-    //Dagger Hilt
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
+	
+	 buildFeatures {
+        buildConfig = true
+    }
+	
+	 multiDexEnabled = true
+	 
+	  buildFeatures {
+        viewBinding = true
+    }
+	
+	
+	
+	packagingOptions {
+        exclude("META-INF/DEPENDENCIES")
+        exclude("META-INF/LICENSE")
+        exclude("META-INF/LICENSE.txt")
+        exclude("META-INF/license.txt")
+        exclude("META-INF/NOTICE")
+        exclude("META-INF/NOTICE.txt")
+        exclude("META-INF/notice.txt")
+        exclude("META-INF/ASL2.0")
+        exclude("META-INF/services/javax.annotation.processing.Processor")
+        exclude("META-INF")
+    }
+	
+	
+	 //Dagger Hilt
     implementation("com.google.dagger:hilt-android:2.50")
     kapt("com.google.dagger:hilt-android-compiler:2.50")
 
@@ -31,4 +60,9 @@ This project used a dependency list-
     implementation("androidx.room:room-runtime:2.6.1") // Use the correct version
     kapt("androidx.room:room-compiler:2.6.1")
 
+
+ 
+kapt {
+    correctErrorTypes = true
+}
     
