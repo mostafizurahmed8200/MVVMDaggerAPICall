@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">KotlinPractiseDate04022024</string>
+    <string name="api_data">API DATA</string>
+    <string name="title">title</string>
+    <string name="description">description</string>
+    <string name="brand">brand</string>
+    <string name="price">price</string>
+    <string name="rating">rating</string>
+    <string name="stock">stock</string>
+    <string name="discount">discount</string>
+</resources>
