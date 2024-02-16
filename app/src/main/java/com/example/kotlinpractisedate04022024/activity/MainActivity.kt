@@ -64,9 +64,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun getDBData() {
         lifecycleScope.launch {
-            val productList = MyApplication.database.productDao().getAllProducts()
+            val productList = MyApplication.database.productDao().getAllProducts("")
 
-            Log.e("Ahmed", "getDBData: $productList")
+            //   Log.e("Ahmed", "getDBData: $productList")
         }
     }
 }

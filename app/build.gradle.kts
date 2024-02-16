@@ -35,17 +35,38 @@ android {
 
     }
 
+    /*signingConfigs {
+        create("release") {
+            storeFile = file("libs/jks/mvvm_api_call.jks")
+            storePassword = "Jayam@123"
 
+            keyAlias = "key0"
+            keyPassword = "Jayam@123"
+
+//            v1SigningEnabled =true;
+//            v2SigningEnabled =true;
+            enableV1Signing =true;
+            enableV2Signing =true;
+            enableV3Signing =true;
+            enableV4Signing =true;
+
+        }
+    }*/
 
 
     buildTypes {
         release {
+            //signingConfig = signingConfigs.getByName("release")
             isMinifyEnabled = true
             isShrinkResources = true
+
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+
+
+
         }
 
         debug {

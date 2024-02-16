@@ -11,6 +11,7 @@ interface ProductsDao {
     @Insert
     suspend fun insert(products: List<Products>)
 
-    @Query("SELECT * FROM Products") // Corrected table name
-    suspend fun getAllProducts(): List<Products>
+
+    @Query("SELECT * FROM Products WHERE category = :userInput OR :userInput IS NULL")
+    suspend fun getAllProducts(userInput: String? = null): List<Products>
 }

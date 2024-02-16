@@ -48,7 +48,7 @@ class ListAdapter(private val context: Context, private val list: List<Products>
         holder.stock.text ="Stock-  ${ listData.stock.toString()}"
         holder.discount.text = "Discount- "+listData.discountPercentage.toString() + " %"
 
-        Log.e("Ahmed", "onBindViewHolder: ${listData.thumbnail} ")
+       // Log.e("Ahmed", "onBindViewHolder: ${listData.thumbnail} ")
         Glide.with(context)
             .load(listData.thumbnail)
             .into(holder.thumbnail)
