@@ -14,9 +14,18 @@ android {
     buildFeatures {
         buildConfig = true
     }
+    tasks.withType<Test> {
+        useJUnitPlatform()
+        testLogging {
+            events("started", "skipped", "passed", "failed")
+            showStandardStreams = true
+        }
+    }
+
+
     defaultConfig {
         applicationId = "com.example.kotlinpractisedate04022024"
-        minSdk = 24
+        minSdk = 29
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -26,8 +35,20 @@ android {
 
     }
 
+
+
+
     buildTypes {
         release {
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+
+        debug {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(
@@ -103,10 +124,29 @@ dependencies {
     //Room DB
     implementation("androidx.room:room-ktx:2.6.1")
     implementation("androidx.room:room-runtime:2.6.1") // Use the correct version
+    //noinspection KaptUsageInsteadOfKsp
     kapt("androidx.room:room-compiler:2.6.1")
 
 
+    //Test Dependency
+
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.10.0")
+    // (Optional) If you also have JUnit 4-based tests
+    testImplementation("junit:junit:4.13.2")
+    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.10.0")
+// JUnit 5
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.0")
+
+    // Mockito
+    testImplementation("org.mockito.kotlin:mockito-kotlin:3.2.0")
+    testImplementation("org.mockito:mockito-junit-jupiter:3.12.0")
+
+
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:3.2.0")
 }
 kapt {
     correctErrorTypes = true
 }
+
